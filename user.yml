@@ -1,0 +1,26 @@
+---
+
+- hosts: synechron
+  
+  tasks: 
+    - name: checking avaialable user
+      user: name=thinknyx state=present
+
+    - name: createin second user
+      user: 
+        name: thinknyx2
+        state: present
+    
+    - name: creating group
+      group: name=synehcrn state=present
+
+    - name: createing one more user
+      user: name=user3 group=synehcrn state=present
+
+    - name: install ntp
+      yum: name=ntp state=present
+
+    - name: check
+      service: name=ntpd state=started enabled=true
+
+
