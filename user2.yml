@@ -1,0 +1,18 @@
+---
+
+- hosts: synechron
+  vars:
+   user: "{{ demo }}"
+
+  tasks:
+    - name: creating user2
+      user: name="{{ user }}" state=present
+
+    - name: file creaqtion
+      file: path=/var/tmp/tn mode=0777 state=touch
+
+    - name: dir creation
+      file: path=/var/tmp/tn2 mode=0744 state=absent
+
+
+
